@@ -1,0 +1,94 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Scenes/Menu.gd" type="Script" id=1]
+[ext_resource path="res://Assets/LogoMonsters.png" type="Texture" id=2]
+[ext_resource path="res://Assets/Fonts/Montserrat-ExtraBold.ttf" type="DynamicFontData" id=3]
+
+[sub_resource type="DynamicFont" id=1]
+size = 48
+outline_size = 3
+outline_color = Color( 0.984314, 0.262745, 0.262745, 1 )
+font_data = ExtResource( 3 )
+
+[node name="Control" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_horizontal_guides_": [ 1290.85 ]
+}
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_constants/margin_right = 20
+custom_constants/margin_top = 20
+custom_constants/margin_left = 20
+custom_constants/margin_bottom = 20
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+margin_left = 20.0
+margin_top = 20.0
+margin_right = 940.0
+margin_bottom = 520.0
+
+[node name="Container" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
+margin_right = 920.0
+margin_bottom = 500.0
+size_flags_horizontal = 3
+
+[node name="Logo" type="TextureRect" parent="MarginContainer/HBoxContainer/Container"]
+margin_right = 920.0
+margin_bottom = 204.0
+texture = ExtResource( 2 )
+stretch_mode = 4
+
+[node name="ButtonContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer/Container"]
+margin_top = 208.0
+margin_right = 920.0
+margin_bottom = 472.0
+custom_constants/separation = 0
+alignment = 1
+
+[node name="NewGame" type="Button" parent="MarginContainer/HBoxContainer/Container/ButtonContainer"]
+margin_left = 381.0
+margin_right = 538.0
+margin_bottom = 66.0
+size_flags_horizontal = 4
+custom_fonts/font = SubResource( 1 )
+text = "Jugar"
+flat = true
+
+[node name="Options" type="Button" parent="MarginContainer/HBoxContainer/Container/ButtonContainer"]
+margin_left = 334.0
+margin_top = 66.0
+margin_right = 586.0
+margin_bottom = 132.0
+size_flags_horizontal = 4
+custom_fonts/font = SubResource( 1 )
+text = "Opciones"
+flat = true
+
+[node name="Credits" type="Button" parent="MarginContainer/HBoxContainer/Container/ButtonContainer"]
+margin_left = 346.0
+margin_top = 132.0
+margin_right = 573.0
+margin_bottom = 198.0
+size_flags_horizontal = 4
+custom_fonts/font = SubResource( 1 )
+text = "Créditos"
+flat = true
+
+[node name="Exit" type="Button" parent="MarginContainer/HBoxContainer/Container/ButtonContainer"]
+margin_left = 398.0
+margin_top = 198.0
+margin_right = 522.0
+margin_bottom = 264.0
+size_flags_horizontal = 4
+custom_fonts/font = SubResource( 1 )
+text = "Salir"
+flat = true
+[connection signal="pressed" from="MarginContainer/HBoxContainer/Container/ButtonContainer/NewGame" to="." method="_on_NewGame_pressed"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/Container/ButtonContainer/Options" to="." method="_on_Options_pressed"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/Container/ButtonContainer/Credits" to="." method="_on_Credits_pressed"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/Container/ButtonContainer/Exit" to="." method="_on_Exit_pressed"]
